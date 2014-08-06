@@ -1,3 +1,7 @@
 2014-04-01  Online Now! Gmbh  <typo3@online-now.de>
 
 	* Initial upload
+	
+2014-08-06  Online Now! Gmbh  <typo3@online-now.de>
+
+	* Small bugfix to support links with target and title like "965 _blank"
