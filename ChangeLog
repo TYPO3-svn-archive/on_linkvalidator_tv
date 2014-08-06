@@ -5,3 +5,4 @@
 2014-08-06  Online Now! Gmbh  <typo3@online-now.de>
 
 	* Small bugfix to support links with target and title like "965 _blank"
+	* Bugfix class path for 6.x version on unix systems
