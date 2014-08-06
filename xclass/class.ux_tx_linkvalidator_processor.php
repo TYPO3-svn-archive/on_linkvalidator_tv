@@ -172,7 +172,16 @@ class ux_tx_linkvalidator_Processor extends tx_linkvalidator_Processor  {
 										}
 
 										$fieldName 	= self::TV_PREFIX . $conf['title'] . $language.' (' . $conf['field'] . ':' . $elementCounter[$conf['field']] . ')';										
-																
+
+										if ((bool)$conf['linkField']) {
+											// maybe we have a link set with target and title etc., so explode the string and only check the first part
+											$valueParts = t3lib_div::trimExplode(' ', $value, true);
+											if(is_array($valueParts) && isset($valueParts[0])) {
+												$value = $valueParts[0];
+												unset($valueParts);
+											}
+										}
+										
 										if ((bool)$conf['linkField'] && !(bool)t3lib_div::testInt($value) && !parse_url($value, PHP_URL_SCHEME)) {
 											// check if a local file was set
 											$filePrefixCheck = false;

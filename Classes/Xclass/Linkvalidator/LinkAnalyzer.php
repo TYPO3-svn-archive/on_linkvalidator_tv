@@ -172,8 +172,16 @@ class LinkAnalyzer extends \TYPO3\CMS\Linkvalidator\LinkAnalyzer {
 											$language = ' ' .$language ;
 										}
 
-										$fieldName 	= self::TV_PREFIX . $conf['title'] . $language.' (' . $conf['field'] . ':' . $elementCounter[$conf['field']].')';										
-
+										$fieldName 	= self::TV_PREFIX . $conf['title'] . $language.' (' . $conf['field'] . ':' . $elementCounter[$conf['field']].')';
+										
+										if ((bool)$conf['linkField']) {
+											// maybe we have a link set with target and title etc., so explode the string and only check the first part
+											$valueParts = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(' ', $value, true);
+											if(is_array($valueParts) && isset($valueParts[0])) {
+												$value = $valueParts[0];
+												unset($valueParts);
+											}
+										}
 										if ((bool)$conf['linkField'] && !(bool)\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($value) && !parse_url($value, PHP_URL_SCHEME)) {
 
 											// check if a local file was set
