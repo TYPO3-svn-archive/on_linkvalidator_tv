@@ -11,10 +11,10 @@ if (version_compare(TYPO3_branch, '6.0', '<')) {
 } else {
 
 	$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Linkvalidator\\LinkAnalyzer'] = array(
-		'className' => 'OnlineNow\\OnLinkvalidatorTv\\XClass\\Linkvalidator\\LinkAnalyzer'
+		'className' => 'OnlineNow\\OnLinkvalidatorTv\\Xclass\\Linkvalidator\\LinkAnalyzer'
 	);
 	$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Linkvalidator\\Report\\LinkValidatorReport'] = array(
-		'className' => 'OnlineNow\\OnLinkvalidatorTv\\XClass\\Linkvalidator\\Report\\LinkValidatorReport'
-	);	
+		'className' => 'OnlineNow\\OnLinkvalidatorTv\\Xclass\\Linkvalidator\\Report\\LinkValidatorReport'
+	);
 }
 ?>
